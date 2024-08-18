@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Cv Digital</title>
+    <link rel="stylesheet" href="Estilo.css">
+    
+</head>
+<body>
+    <h1 align="center">Meu CV Digital</h1>
+    <a href="formação.html">Formação</a>
+    <a href="experiência.html">Experiência</a>
+    <br>
+    <div id="popupForm" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 align="center">Insira os seus detalhes</h2>
+            <form id="userForm">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <button type="submit">Submeter</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        var modal = document.getElementById("popupForm");
+        var closeButton = document.getElementsByClassName("close-btn")[0];
+
+        window.onload = function() {
+            modal.style.display = "block";
+        };
+
+        closeButton.onclick = function() {
+            modal.style.display = "none";
+        };
+
+        document.getElementById("userForm").onsubmit = function(e) {
+            e.preventDefault();
+
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            // Update do footer
+            document.getElementById("displayName").textContent = name;
+            document.getElementById("displayEmail").textContent = email;
+
+            modal.style.display = "none";
+            
+        };
+        // colocar? ajuda a página ser menos irritante..wareva
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+    <br>
+    <div class="separador">
+    <p><h2>Quem eu sou </h2></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti adipisci magnam, deleniti ducimus veniam iure ipsa autem unde? Sequi neque quos assumenda aperiam ipsum quas distinctio architecto. Quo, praesentium nam.</p>    
+    <p1 >O meu Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis, excepturi aliquam eaque corrupti quibusdam laboriosam animi quisquam quod sequi fugit amet odio rem earum id sunt omnis! Dignissimos, recusandae sed.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In accusamus nihil ea consectetur exercitationem sequi recusandae incidunt molestiae voluptatibus nisi eveniet unde dicta minima tempore culpa placeat, vitae provident assumenda.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus eligendi tenetur voluptates vel dicta maxime fugit natus eum magni cumque. Minus, facilis quia. Vel recusandae at dolorem mollitia eveniet velit?
+    </p>
+    <p2 >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus dolorem alias voluptatum nam veniam fuga autem saepe dicta voluptatem, ex mollitia incidunt, quasi repellat doloremque inventore beatae maiores aperiam necessitatibus?</p>    
+    </div>
+        
+</body>
+<footer>
+    <p>Obrigado por partilhar os seus detalhes.<br> <span id="displayName"></span>  <span id="displayEmail"></span> 
+    </p>
+</footer>
+</html>
